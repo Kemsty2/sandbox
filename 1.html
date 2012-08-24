@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>dynaedit</title>
+<style type="text/css">
+.msg, .edt {font-family: "Verdana", "Arial", "Helvetica", sans-serif; font-size: 10pt}
+.msg {background-color:#DDf; border: 1px solid #000; padding:2px}
+.edt {margin:-2px 0 -2px -1px; padding:0; width:100%; height:100%; border 0}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+$(document).ready(function()
+{
+    $("#admin").click(function()
+    {
+        $(this).remove();
+        $("p.msg").each(function()
+        {
+            var msg_id=this.id.substr(1); //Откуда здесь this? Из each!
+            var msg=$(this); //Объект JQuery из DOM элемента <p>
+            $("<input/>", //Добавим под ним кнопку
+            {
+                type: "button",
+                value: "Править запись #"+msg_id,
+                click: function StartEdit() //При нажатии будем подменять текст внутри p на поле textarea для редактирования
+                {
+                    var edt=$("<textarea/>", //Создаем textarea, помещаем вместо текста в p
+                    {
+                        'class':'edt',
+                        value:msg.html().replace(/<br[^>]*>/gim,"\n"), //откуда msg? из родительской функции => замыкание
+                        height:msg.height(),
+                    }).appendTo(msg.empty());
+                    $(this).val("Сохранить запись #"+msg_id).unbind().click(function() //Меняем надпись и обработчик на кнопке
+                    {
+                        //$.post("/ajax/savemessage",{msg_id:msg_id, msg:edt.val()}, function(data){}); //Отправляем на сервер
+                        msg.html(edt.remove().val().replace(/\n/gm,"<br />")); //Убираем textarea, возвращаем текст
+                        $(this).val("Править запись #"+msg_id).unbind().click(StartEdit);//Меняем надпись, ставим старый обработчик на кнопке
+                        return false;
+                    });//Save
+                    return false;
+                } //StartEdit()
+            }).insertAfter(this);//<input/>
+        });//$("p.msg").each
+        return false;
+    });//$("#admin").click
+});//$(document).ready
+</script>
+</head>
+
+<body>
+<p id="p1234" class="msg">Это первое сообщение<br />Его можно редактировать!</p>
+<p id="p1235" class="msg">Это второе сообщение<br />Его тоже можно редактировать!<br />P.S. Just 4 lulz</p>
+<p><a href="#" id="admin">Я админ и хочу редактировать!</a></p>
+</body>
+
+</html>

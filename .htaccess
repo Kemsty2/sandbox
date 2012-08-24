@@ -1,0 +1,11 @@
+AddDefaultCharset utf-8
+
+<IfModule mod_setenvif.c>
+  <IfModule mod_headers.c>
+     BrowserMatch MSIE ie
+     Header set X-UA-Compatible "IE=Edge,chrome=1" env=ie
+  </IfModule>
+</IfModule>
+
+#RewriteEngine On
+#RewriteRule (.*) http://spp.ane.ru/fakultety/istoricheskiy$1 [L,P]
