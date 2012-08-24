@@ -1,0 +1,341 @@
+@import "bootstrap.css";
+@import "bootstrap-responsive.css";
+
+/*
+* {
+	behavior: url(css/PIE/PIE.php);
+}
+*/
+
+body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+}
+
+.footer {
+	border-top: 1px solid #E5E5E5;
+	margin-top: 45px;
+	padding: 35px 0 36px;
+}
+
+a.control {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	padding: 2px;
+	margin: 1px 1px;
+	background-color: transparent;
+	border-right: 1px solid #DDDDDD;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+a.control:hover {
+	background-color: #DDDDDD;
+	border-right: 1px solid #999999;
+	border-bottom: 1px solid #999999;
+}
+
+.-xjs-icon { display: inline-block; width: 16px; height: 16px; background-image: url(images/ui-icons_9c9c9c_256x240.png); }
+.-xjs-icon:hover { background-image: url(images/ui-icons_454545_256x240.png); }
+
+.-xjs-icon-circle-close { background-position: -32px -192px; }
+.-xjs-icon-refresh { background-position: -64px -80px; }
+.-xjs-icon-star { background-position: -224px -112px; }
+.-xjs-icon-close { background-position: -80px -128px; }
+.-xjs-icon-check { background-position: -64px -144px; }
+.-xjs-icon-pencil { background-position: -64px -112px; }
+.-xjs-icon-loading {
+	min-width: 16px;
+	min-height: 16px; 
+	background: white url('images/ui-anim_basic_16x16.gif') left top no-repeat; 
+}
+
+.-xjs-textfield, .-xjs-extra {
+	display: inline-block;
+	position: relative;
+}
+
+.-xjs-textfield-control, .-xjs-extra-control {
+	display: block;
+	float: right;
+	position: relative;
+	margin-top: 5px;
+	/*position: absolute;
+	top: 0;
+	left: 100%;
+	z-index: 1;
+	width: 100%; */
+}
+
+input + .-xjs-textfield-control {
+	margin-left: -16px;
+	/*top: 50%;	
+	margin-top: -8px;
+	margin-left: -16px; */
+}
+
+.settings {
+	position: absolute;
+	right: 30px;
+}
+
+.settings > div {
+	position: absolute;
+	z-index: 1800;
+	right: 0;
+	border: 1px solid #E5E5E5;
+	border-radius: 4px;
+	background-color: #f6f6f6;
+	padding: 10px;
+	overflow: auto;
+}
+
+ul.horizontal {
+	margin: 0;
+	padding: 0;
+}
+
+ul.horizontal > li {
+	list-style: none;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+ul.horizontal > li.divider {
+	margin: 0 5px 0 5px;
+	padding: 0;
+}
+
+.action-notify{
+	width: 50%;
+	position: absolute;
+	top: 70px;
+	right: 20px;
+	opacity: 80%;
+}
+
+tr.disabled td {
+	color: #999;
+	font-style: italic;
+}
+
+a.dynamic-list-add, a.dynamic-list-add:hover, a.dynamic-list-add:active, a.dynamic-list-add:visited, 
+a.dynamic-list-remove, a.dynamic-list-remove:hover, a.dynamic-list-remove:active, a.dynamic-list-remove:visited {
+	background-color: #FFFFFF;
+	border: 1px solid #B6B6B6;
+	color: #B6B6B6;
+	display: block;
+	font-size: 14px;
+	padding: 3px;
+	text-align: center;
+	text-decoration: none;
+	width: 15px;
+	height: 15px;
+	margin-right: 5px;
+}
+
+a.dynamic-list-add:hover, a.dynamic-list-remove:hover {
+	color: #A0A0A0;
+	border: 1px solid #A0A0A0;
+}
+
+.dynamic-list-item {
+	border: 1px solid #E5E5E5;
+	margin-bottom: 5px;
+	padding: 5px 5px 5px 60px;
+	position: relative;
+	min-height: 22px;
+}
+
+.dynamic-list-item > a.dynamic-list-add {
+	position: absolute;
+	top: 50%;
+	left: 5px;
+	margin-top: -12px;
+}
+.dynamic-list-item > a.dynamic-list-remove {
+	position: absolute;
+	top: 50%;
+	left: 31px;
+	margin-top: -12px;
+}
+
+table.report-head-table {
+	width: 100%;
+	border-collapse: collapse;
+	background-color: #efefef;
+	border: 1px solid #ccc;
+	margin: 0;
+	padding: 0;
+	margin-left: -1px;
+	margin-top: -1px;
+}
+
+table.report-head-table th, table.report-head-table td {
+	padding: 7px;
+	text-align: left;
+}
+
+.report-grouped-field {
+	color: #777;
+}
+
+table.report-table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 0;
+	margin-top: -1px;
+	margin-left: -1px;
+	padding: 0;
+	border: 1px solid #ccc;
+}
+
+table.report-table table.report-table {
+	border: 0;
+}
+
+table.report-table td {
+	vertical-align: top;
+	margin: 0;
+	margin-top: -1px;
+	margin-left: -1px;
+	padding: 0;
+	border-left: solid 1px #ccc;
+	border-top: solid 1px #ccc;
+}
+
+table.report-table td > div {
+	padding: 7px;
+}
+
+tr.groupby > td {
+	color: #777;
+	font-style: italic;
+}
+
+tr.summary > td {
+	background-color: #ededed;
+	font-weight: bold;
+}
+
+/* Placeholder style fix */
+::-webkit-input-placeholder {
+	font-style: italic;
+}
+input:-moz-placeholder {
+	font-style: italic;
+} 
+.placeholder {
+	font-style: italic;
+}
+
+
+/* Custom styles */
+.oq {
+	display: block;
+	float: left;
+	width: 25%;
+	margin: 0 0 4px 2%;
+}
+
+div#calendar table th {
+	width: 14%;
+}
+
+.date-info {
+	display: block;
+	width: 70px;
+	min-height: 50px;
+	padding: 0;
+	margin: 0;
+	float: right;
+	/*border: 1px solid #000;*/
+}
+
+.date-info > div {
+	font-size: 9px;
+	color: #666666;
+	font-style: italic;
+}
+
+.date-num {
+	font-size: 25px;
+}
+
+.schedule-info > ol {
+	margin-top: 5px;
+	font-size: 9px;
+}
+
+.schedule-info > ol .simple{
+	color: green;
+}
+
+.table-research td {
+	font: normal 10px Arial;
+	color: #000;
+	border: none;
+}
+
+.table-research td label {	
+	font: normal 10px Arial;
+	color: #000;
+	margin-bottom: 0;
+}
+
+.table-research td input[type="checkbox"] {
+	/*margin-bottom: -2px; */
+	margin-top: 1px;
+}
+
+.table-research td .research-locked {
+	position: absolute;
+	margin-left: -19px;
+	margin-top: 0;
+	z-index: 20;
+}
+
+.table-research tr {
+	border-bottom: 1px solid #DDDDDD; 
+}
+
+/* различное отображение для разных устройств */
+
+
+@media handheld {
+	#researchTabs .overlay {
+		display: none;
+	}
+
+	#researchTabs .nav-tabs {
+		position: relative;
+		top: auto;
+	}
+
+	#researchTabs .tab-content {
+		margin-top: 0;
+	}
+}
+
+@media only screen and (min-device-height: 768px) and (min-device-width: 1300px) {
+	#researchTabs .overlay {
+		position: fixed;
+		top: 0;
+		width: 100%;
+		height: 46px;
+		z-index: 90;
+		background-color: #fff;
+		margin: 0;
+		padding: 0;
+	}
+
+	#researchTabs .nav-tabs {
+		position: fixed;
+		z-index: 100;
+		top: 10px;
+	}
+
+	#researchTabs .tab-content {
+		margin-top: 28px;
+	}
+}

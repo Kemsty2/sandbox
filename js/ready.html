@@ -1,0 +1,48 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Ready test</title>
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+</head>
+<body>
+<div id="wrapper"></div>
+<script type="text/javascript">
+$(window).ready(function(){
+
+	//subscribe to Mutation Events
+	$('body').bind('DOMSubtreeModified', function(){ //set into $(window).ready braces
+		alert('DOM changed!');
+	});
+
+	$('#wrapper').text('I\'m implemented!')//.trigger('domChange');
+	.load('text.html');
+
+/*/
+    var featureArray = ['HTML', 'XML', 'Core', 'Views',
+                        'StyleSheets', 'CSS', 'CSS2', 'Events',
+                        'UIEvents', 'MouseEvents', 'HTMLEvents',
+                        'MutationEvents', 'Range', 'Traversal'];
+    var versionArray = ['1.0', '2.0', '3.0'];
+    var i;
+    var j;
+    if(document.implementation && document.implementation.hasFeature){
+      for(i=0; i < featureArray.length; i++){
+        for(j=0; j < versionArray.length; j++){
+          document.write(
+            'Поддержка расширения '+ featureArray[i] + ' версии ' + versionArray[j] + ' : ' + 
+            (document.implementation.hasFeature(featureArray[i], versionArray[j]) ? 
+            '<font style="color:green">true</font>' : '<font style="color:red">false</font>') + '<br/>'
+          );
+        }
+        document.write('<br/>');
+      }
+    }
+//*/
+});
+
+</script>
+</body>
+</html>

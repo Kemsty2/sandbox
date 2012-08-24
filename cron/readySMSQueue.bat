@@ -1,0 +1,1 @@
+php -f c:\cron\readySMSQueue.php >> c:\cron\readySMSQueue.log

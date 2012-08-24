@@ -1,0 +1,1 @@
+php -f c:\cron\smppReceiver.php >> c:\cron\smppReceiver.log

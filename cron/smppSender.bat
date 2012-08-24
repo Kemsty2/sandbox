@@ -1,0 +1,1 @@
+php -f c:\cron\smppSender.php >> c:\cron\smppSender.log

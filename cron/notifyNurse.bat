@@ -1,0 +1,1 @@
+php -f c:\cron\notifyNurse.php >> c:\cron\notifyNurse.log
